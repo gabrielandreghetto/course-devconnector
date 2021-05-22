@@ -40,7 +40,8 @@ export default (state = initialState, action) => {
                 ...state,
                 token: null,
                 isAuthenticated: false,
-                loading: false
+                loading: false,
+                user: null
             }
     
         default:
