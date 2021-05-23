@@ -50,7 +50,7 @@ const AddEducation = ({ addEducation, history }) => {
                     <input type="text" placeholder="* School" name="school" value={school} onChange={e => onChange(e)} required />
                 </div>
                 <div class="form-group">
-                    <input type="text" placeholder="Field of Study" name="fieldofstudy" value={fieldofstudy} onChange={e => onChange(e)} />
+                    <input type="text" placeholder="* Field of Study" name="fieldofstudy" value={fieldofstudy} onChange={e => onChange(e)} />
                 </div>
                 <div class="form-group">
                     <h4>From Date</h4>
@@ -60,7 +60,7 @@ const AddEducation = ({ addEducation, history }) => {
                     <p><input type="checkbox" name="current" checked={current} value={current} onChange={e => {
                         setFormData({ ...formData, current: !current })
                         toggleDisabled(!toDateDisabled)
-                    }} /> Current Job</p>
+                    }} /> Current School</p>
                 </div>
                 <div class="form-group">
                     <h4>To Date</h4>
@@ -71,7 +71,7 @@ const AddEducation = ({ addEducation, history }) => {
                         name="description"
                         cols="30"
                         rows="5"
-                        placeholder="Job Description"
+                        placeholder="Degree Description"
                         value={description} onChange={e => onChange(e)}
                     ></textarea>
                 </div>
