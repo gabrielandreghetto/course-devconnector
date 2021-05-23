@@ -5,9 +5,10 @@ import { connect } from 'react-redux';
 
 import { addExperience } from '../../actions/profile';
 
-const AddExperience = props => {
+const AddExperience = ({ addExperience, history }) => {
     const [formData, setFormData] = useState({
         company: '',
+        location: '',
         title: '',
         from: '',
         to: '',
@@ -19,6 +20,7 @@ const AddExperience = props => {
 
     const {
         company,
+        location,
         title,
         from,
         to,
@@ -38,7 +40,10 @@ const AddExperience = props => {
                 positions that you have had in the past
             </p>
             <small>* = required field</small>
-            <form class="form">
+            <form class="form" onSubmit={e => {
+                e.preventDefault();
+                addExperience(formData, history)
+            }}>
                 <div class="form-group">
                 <input type="text" placeholder="* Job Title" name="title" value={title} onChange={e => onChange(e)} required />
                 </div>
@@ -60,7 +65,7 @@ const AddExperience = props => {
                 </div>
                 <div class="form-group">
                 <h4>To Date</h4>
-                <input type="date" name="to" value={to} onChange={e => onChange(e)} />
+                <input type="date" name="to" value={to} onChange={e => onChange(e)} disabled={toDateDisabled ? 'disabled' : ''} />
                 </div>
                 <div class="form-group">
                 <textarea
